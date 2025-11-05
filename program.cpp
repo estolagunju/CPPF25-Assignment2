@@ -6,11 +6,11 @@ void draw_rectangle(BMP &bmp,int x, int y, int l, int h, color c, color b ){
         for(int ii=0;ii<=h;ii++){
         bmp.set_pixel(i+x, y+ii, c.r,c.g,c.b);
         bmp.set_pixel(i+x, y+h-ii, c.r, c.g,c.b);
-        } // go through the shape, length and height
+        bmp.set_pixel(i+x, y+ii, b.r, b.g, b.b); bmp.set_pixel(i+x, y+h-ii, b.r,b.g, b.b); // go through the shape, length and height
     }
     /*for(int j=0;j<=h;j++){
         for(int ii=0;ii<=b;ii++){
-            bmp.set_pixel(x+ii, y+j, c.r,c.g,c.b);
+            bmp.pixel(x+ii, y+j, c.r,c.g,c.b);
             bmp.set_pixel(x+l-ii, y+j,c.r, c.g,c.b);
         } // set the border of shape
     }*/
@@ -31,7 +31,7 @@ int main() {
 
     }
     
-     draw_rectangle(bmp,1,1,500,500,color{255,0,0}, color{23,19,60}); //500,10,
+     draw_rectangle(bmp,1,1,500,500,color{255,255,0}, color{0,0,0}); //500,10,
 
     bmp.write("rect.bmp"); // Save the image to a file
 
